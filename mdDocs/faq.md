@@ -70,7 +70,7 @@ videoEditorSDK?.presentVideoEditor(
 
 ### 4. How do I use the Video Editor several times from different entry points?
 
-Before you want to use VideoEditor again, you need to deinitialize your current editor instance in your [entry point class scope](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/d9733e78a6a752dd8fad849f6aa6d5553eb07f56/Example/Example/ViewController.swift#L675). You need to set 'yourVideoEditorSdkInstance' = nil after following funcs called([done](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/d9733e78a6a752dd8fad849f6aa6d5553eb07f56/Example/Example/ViewController.swift#L660) and [cancel](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/d9733e78a6a752dd8fad849f6aa6d5553eb07f56/Example/Example/ViewController.swift#L678)).
+Before you want to use VideoEditor again, you need to deinitialize your current editor instance in your [entry point class scope](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/ViewController.swift#L248). You need to set 'yourVideoEditorSdkInstance' = nil after following funcs called([done](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/ViewController.swift#L230) and [cancel](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/ViewController.swift#L251)).
 
 ```swift
 // Video Editor Delegate implementation example
@@ -100,7 +100,7 @@ extension ViewController: BanubaVideoEditorDelegate {
 }
 ```
 
-Use the following approach if you want to [create BanubaVideoEditor instance](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/d9733e78a6a752dd8fad849f6aa6d5553eb07f56/Example/Example/ViewController.swift#L42) again. 
+Use the following approach if you want to [create BanubaVideoEditor instance](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/ViewController.swift#L68) again. 
 
 For example on your tap button action:
 
@@ -114,13 +114,13 @@ For example on your tap button action:
 
 ### 5. How do I add a color filter (LUT)?
 
-Color Filters (LUTs) are special graphics files that are placed in the / [luts directory](https://github.com/Banuba/ve-sdk-ios-integration-sample/tree/main/Example/Example/luts) inside the main project folder.
+Color Filters (LUTs) are special graphics files that are placed in the / [luts directory](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/tree/main/Example/Example/luts) inside the main project folder.
 
-To add your own icon to be used to represent that specific effect in the list, you must place it in the / [assets folder](https://github.com/Banuba/ve-sdk-ios-integration-sample/tree/main/Example/Example/Assets.xcassets/Filters%20Preview).
+To add your own icon to be used to represent that specific effect in the list, you must place it in the / [assets folder](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/tree/main/Example/Example/Assets.xcassets/Effects%20Preview).
 
 The icon resource name must match the image file name in the / luts directory and end with ```_preview```.
 
-The display name for the resource is set in the [localization files](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/en.lproj/Localizable.strings#L353).
+The display name for the resource is set in the [localization files](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/en.lproj/Localizable.strings#L353).
 
 The key for the translation string must start with ```com.banuba.filter.name.{lut file name}``` and end with the name of the lut file.
 
@@ -162,7 +162,7 @@ config.recorderConfiguration.progressBarPosition = .top
 
 ### 9. How does video editor work when token expires?
 
-[Token](https://github.com/Banuba/ve-sdk-android-integration-sample#token) provided by sales managers has an expiration term to protect Video Editor SDK from malicious access. When the token expires the following happens:
+[Token](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample#token) provided by sales managers has an expiration term to protect Video Editor SDK from malicious access. When the token expires the following happens:
  - video resolution will be lowered to 360p on camera, after trimmer and after export
  - Banuba watermark is applied to every exported video
 
@@ -331,7 +331,7 @@ self.loadToken { token in
 
 This error occurs because your application bundle doesn't contains required luts folder.
 
-You need to copy [luts](https://github.com/Banuba/ve-sdk-ios-integration-sample/tree/main/Example/Example/luts) folder to your project.
+You need to copy [luts](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/tree/main/Example/Example/luts) folder to your project.
 
 ### 16. I want to add audio filters 
 
@@ -405,33 +405,33 @@ Below is a table with the name, ID and icon of the default effect.
 
 | Default image effect | Name      | ID      |
 | ---------- | ---------  | ----------- |
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102000_preview.imageset/Acid-whip.png" width="50"> | Acid whip | 102000
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102001_preview.imageset/cathode.png" width="50"> | Cathode | 102001
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102002_preview.imageset/ic_dv_cam.png" width="50"> | DV Cam | 102002
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102003_preview.imageset/btn_flash2.png" width="50"> | Flash | 102003
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102004_preview.imageset/glitch.png" width="50"> | Glitch | 102004
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102005_preview.imageset/ic_glitch2.png" width="50"> | Glitch 2 | 102005
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102006_preview.imageset/ic_heatmap.png" width="50"> | Heat Map | 102006
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102007_preview.imageset/ic_lumiere.png" width="50"> | Lumiere | 102007
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102008_preview.imageset/ic_Kaleidoscope.png" width="50"> | Mirror | 102008
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102009_preview.imageset/ic_dslrkaleidoscope.png" width="50"> | Mirror 2 | 102009
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102010_preview.imageset/ic_pixeldynamics.png" width="50"> | Pixel Dynamic | 102010
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102011_preview.imageset/ic_pixelstatics.png" width="50"> | Pixel Static | 102011
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102012_preview.imageset/polaroid.png" width="50"> | Polaroid | 102012
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102013_preview.imageset/btn_rave2.png" width="50"> | Rave | 102013
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102014_preview.imageset/btn_soul2.png" width="50"> | Soul | 102014
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102015_preview.imageset/ic_stars.png" width="50"> | Stars | 102015
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102016_preview.imageset/btn_foamtv2.png" width="50"> | TV-Foam | 102016
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102017_preview.imageset/ic_transition1.png" width="50"> | Transition | 102017
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102018_preview.imageset/ic_transition4.png" width="50"> | Transition 2 | 102018
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102019_preview.imageset/btn_vhs2.png" width="50"> | VHS | 102019
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102020_preview.imageset/ic_vhs2.png" width="50"> | VHS 2 | 102020
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102021_preview.imageset/zoom.png" width="50"> | Zoom | 102021
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102022_preview.imageset/ic_zoom2.png" width="50"> | Zoom 2 | 102022
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/104000_preview.imageset/btn_slowmotion2.png" width="50"> | 0.5x | 104000
-| <img src="https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/104001_preview.imageset/btn_rapid2.png" width="50"> | 2x | 104001
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102000_preview.imageset/Acid-whip.png" width="50"> | Acid whip | 102000
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102001_preview.imageset/cathode.png" width="50"> | Cathode | 102001
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102002_preview.imageset/ic_dv_cam.png" width="50"> | DV Cam | 102002
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102003_preview.imageset/btn_flash2.png" width="50"> | Flash | 102003
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102004_preview.imageset/glitch.png" width="50"> | Glitch | 102004
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102005_preview.imageset/ic_glitch2.png" width="50"> | Glitch 2 | 102005
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102006_preview.imageset/ic_heatmap.png" width="50"> | Heat Map | 102006
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102007_preview.imageset/ic_lumiere.png" width="50"> | Lumiere | 102007
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102008_preview.imageset/ic_Kaleidoscope.png" width="50"> | Mirror | 102008
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102009_preview.imageset/ic_dslrkaleidoscope.png" width="50"> | Mirror 2 | 102009
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102010_preview.imageset/ic_pixeldynamics.png" width="50"> | Pixel Dynamic | 102010
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102011_preview.imageset/ic_pixelstatics.png" width="50"> | Pixel Static | 102011
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102012_preview.imageset/polaroid.png" width="50"> | Polaroid | 102012
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102013_preview.imageset/btn_rave2.png" width="50"> | Rave | 102013
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102014_preview.imageset/btn_soul2.png" width="50"> | Soul | 102014
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102015_preview.imageset/ic_stars.png" width="50"> | Stars | 102015
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102016_preview.imageset/btn_foamtv2.png" width="50"> | TV-Foam | 102016
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102017_preview.imageset/ic_transition1.png" width="50"> | Transition | 102017
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102018_preview.imageset/ic_transition4.png" width="50"> | Transition 2 | 102018
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102019_preview.imageset/btn_vhs2.png" width="50"> | VHS | 102019
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102020_preview.imageset/ic_vhs2.png" width="50"> | VHS 2 | 102020
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102021_preview.imageset/zoom.png" width="50"> | Zoom | 102021
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/102022_preview.imageset/ic_zoom2.png" width="50"> | Zoom 2 | 102022
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/104000_preview.imageset/btn_slowmotion2.png" width="50"> | 0.5x | 104000
+| <img src="https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/Assets.xcassets/Effects%20Preview/104001_preview.imageset/btn_rapid2.png" width="50"> | 2x | 104001
 
-In order to change the name of the effect, you need to do it in the [localization file](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/en.lproj/Localizable.strings#L254).
+In order to change the name of the effect, you need to do it in the [localization file](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/en.lproj/Localizable.strings#L254).
 
 ### 18. I want to turn off Drafts feature.
 
@@ -569,7 +569,7 @@ If you don't use optional frameworks, you should disable bitcode in order to suc
 There is no special language switching mechanism in the Video Editor SDK (VE SDK).
 
 Out of the box, the VE SDK includes support for two locales: English (default) and Russian. If you need to support any other locales, you can do it according to the standard iOS way. See how [Create locale directories and resource files](https://developer.apple.com/documentation/xcode/localization) for more details. After adding a new locale resource file into your application with integrated VE SDK, you need to re-define the VE SDK strings keys with new locale string values.
-To do that you need to add all needed string keys in the new locale `Localizable.strings` file. You can find the main VE SDK string keys you need in the [Configure screens](https://github.com/Banuba/ve-sdk-ios-integration-sample#Configure-screens) doc page. E.g. string keys of the Overlay screen you can find [here](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/mdDocs/overlayEditor_styles.md#string-resources).
+To do that you need to add all needed string keys in the new locale `Localizable.strings` file. You can find the main VE SDK string keys you need in the [Configure screens](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/mdDocs/integration.md#Configure-screens) doc page. E.g. string keys of the Overlay screen you can find [here](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/mdDocs/overlayEditor_styles.md#string-resources).
 The newly added locale will be applied after the device language is changed by system settings.
 
 ### 27. How can I change the extension of the exported video?
@@ -579,9 +579,9 @@ To save the video in the format you want, you just need to add the appropriate `
 let videoURL = manager.temporaryDirectory.appendingPathComponent("tmp.mov")
 ```
 
-See example in [sample](https://github.com/Banuba/ve-sdk-ios-integration-sample/blob/main/Example/Example/ViewController.swift#L171).
+See example in [sample](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/Example/Example/ViewController.swift#L176).
 
-See all formats supported for video export [here](https://github.com/Banuba/ve-sdk-ios-integration-sample#supported-media-formats).
+See all formats supported for video export [here](https://github.com/Banuba-Examples/ve-sdk-ios-integration-sample/blob/main/mdDocs/integration.md#Supported-media-formats).
 
 ### 28. How to set buttons for video modes?
 
