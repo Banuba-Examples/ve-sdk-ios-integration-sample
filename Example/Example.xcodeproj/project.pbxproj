@@ -596,7 +596,7 @@
 			repositoryURL = "https://github.com/Banuba/spm";
 			requirement = {
 				kind = exactVersion;
-				version = 1.26.3;
+				version = "1.26.3-alpha";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
